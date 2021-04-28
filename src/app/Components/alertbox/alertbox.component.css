@@ -1,0 +1,19 @@
+.alert-box{
+    position: absolute;
+    top:1;
+    left: 40%;
+    width: 20vw;
+    height: fit-content;
+    text-align: center;
+    z-index: 100;
+    padding: 20px 40px;
+    font-size: 17px;
+    box-shadow: 0 0 2px 1px #ffffff;
+    color: white;
+}
+.error{
+    background-color: #fc0000;
+}
+.success{
+    background-color: rgb(170, 255, 0);
+}

@@ -1,0 +1,25 @@
+.body{
+    margin: 10px 20px;
+    padding: 20px 30px;
+    overflow-x: auto;
+}
+.patient-table{
+    padding: 0 30px;
+    min-width: 550px;
+}
+.page{
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.mat-header-cell{
+    font-size: 17px;
+    font-weight: bolder;
+    color: black;
+}
+
+.table-btn{
+    font-size: 15px;
+    margin-right: 5px;
+}

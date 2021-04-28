@@ -1,0 +1,146 @@
+<h2 mat-dialog-title>{{edit?'Update Patient Data' : 'Add New Patient'}}</h2>
+
+<form [formGroup]="patientForm" (ngSubmit)="onSubmit()" novalidate>
+    <mat-dialog-content>
+        <div formGroupName="patientDetail" class="outer-input-section">
+            <mat-form-field appearance="fill">
+                <mat-label>PatientId</mat-label>
+                <input matInput type="number" formControlName="patientId">
+            </mat-form-field>
+            <div formGroupName="fullName" class="input-section">
+                <mat-form-field appearance="fill">
+                    <mat-label>FirstName</mat-label>
+                    <input matInput type="text" formControlName="firstName">
+                    <mat-error *ngIf="c.firstName.errors?.required">firstname is required</mat-error>
+                    <mat-error *ngIf="c.firstName.errors?.pattern">only alphabets are allowed</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>SurName</mat-label>
+                    <input matInput type="text" formControlName="lastName">
+                    <mat-error *ngIf="c.lastName.errors?.required">lastname is required</mat-error>
+                    <mat-error *ngIf="c.lastName.errors?.pattern">only alphabets are allowed</mat-error>
+                </mat-form-field>
+            </div>
+            <div formGroupName="bioDetail" class="input-section">
+                <mat-label>Gender</mat-label>
+                <mat-radio-group formControlName="gender" class="radio-group">
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
+                    <mat-radio-button value="Transgender">Transgender</mat-radio-button>
+                </mat-radio-group>
+                <mat-form-field appearance="fill">
+                    <mat-label>Date Of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dob">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="d.dob.errors?.required">date of birth is required</mat-error>
+                    <mat-error *ngIf="d.dob.errors?.invalidDOB">invalid date of birth</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Age</mat-label>
+                    <input matInput type="number" [value]="d.dob.value | agePipe" formControlName="age">
+                    <mat-error *ngIf="d.age.errors?.required">age is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div formGroupName="familyStatus" class="input-section">
+                <mat-form-field appearance="fill">
+                    <mat-label>Marital Status</mat-label>
+                    <mat-select formControlName="maritalStatus" >
+                        <mat-option value="Single">Single</mat-option>
+                        <mat-option value="Married">Married</mat-option>
+                        <mat-option value="Divorced">Divorced</mat-option>
+                        <mat-option value="Widowed">Widowed</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="e.maritalStatus.errors?.required">marital status is required</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Religion</mat-label>
+                    <input matInput type="text" formControlName="religion">
+                    <mat-error *ngIf="e.religion.errors?.required">religion is required</mat-error>
+                    <mat-error *ngIf="e.religion.errors?.pattern">only alphabets are allowed</mat-error>
+                </mat-form-field>
+            </div>
+            <div formGroupName="socialDetail" class="input-section">
+                <mat-form-field appearance="fill">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput type="tel" formControlName="phone">
+                    <mat-error *ngIf="f.phone.errors?.required">phone No. is required</mat-error>
+                    <mat-error *ngIf="f.phone.errors?.pattern">inavlid number</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Email Address</mat-label>
+                    <input matInput type="email" formControlName="email">
+                    <mat-error *ngIf="f.email.errors?.required">email is required</mat-error>
+                    <mat-error *ngIf="f.email.errors?.pattern">email is not valid</mat-error>
+                </mat-form-field>
+            </div>
+            <div formGroupName="addressDetail" class="input-section">
+                <mat-form-field appearance="fill">
+                    <mat-label>Nationality</mat-label>
+                    <input matInput type="text" formControlName="nationality">
+                    <mat-error *ngIf="g.nationality.errors?.required">nationality is required</mat-error>
+                    <mat-error *ngIf="g.nationality.errors?.pattern">only alphabets are allowed </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>State</mat-label>
+                    <input matInput type="text" formControlName="state">
+                    <mat-error *ngIf="g.state.errors?.required">state is required</mat-error>
+                    <mat-error *ngIf="g.state.errors?.pattern">only alphabets are allowed</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Occupation</mat-label>
+                    <input matInput type="text" formControlName="occupation">
+                    <mat-error *ngIf="g.occupation.errors?.required">occupation is required</mat-error>
+                    <mat-error *ngIf="g.occupation.errors?.pattern">only alphabets are allowed</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput type="text" formControlName="address"></textarea>
+                    <mat-error *ngIf="g.address.errors?.required">address is required</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div formGroupName="kinDetail" class="input-section">
+            <h3 class="title">Kin Details</h3>
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" formControlName="relativename">
+                <mat-error *ngIf="kin.relativename.errors?.required">name is required</mat-error>
+                <mat-error *ngIf="kin.relativename.errors?.pattern">only alphabets are allowed</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>RelationShip</mat-label>
+                <input matInput type="text" formControlName="relation">
+                <mat-error *ngIf="kin.relation.errors?.required">relation is required</mat-error>
+                <mat-error *ngIf="kin.relation.errors?.pattern">only alphabets are allowed</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Phone Number</mat-label>
+                <input matInput type="tel" formControlName="relativephone">
+                <mat-error *ngIf="kin.relativephone.errors?.required">phone No. is required</mat-error>
+                <mat-error *ngIf="kin.relativephone.errors?.pattern">invalid number</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Email Address</mat-label>
+                <input matInput type="email" formControlName="relativeemail">
+                <mat-error *ngIf="kin.relativeemail.errors?.required">email is required</mat-error>
+                <mat-error *ngIf="kin.relativeemail.errors?.pattern">not valid email</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Occupation</mat-label>
+                <input matInput type="text" formControlName="relativeoccupation">
+                <mat-error *ngIf="kin.relativeoccupation.errors?.required">occupation is required</mat-error>
+                <mat-error *ngIf="kin.relativeoccupation.errors?.pattern">only alphabets are allowed</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Address</mat-label>
+                <textarea matInput type="text" formControlName="relativeaddress"></textarea>
+                <mat-error *ngIf="kin.relativeaddress.errors?.required">address is required</mat-error>
+            </mat-form-field> 
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <button mat-raised-button color="warn" type="button" (click)="close()">Cancel</button>
+    </mat-dialog-actions>
+</form>

@@ -1,0 +1,42 @@
+<ng-template #placeholder></ng-template>
+<div>
+    <div class="header">
+        <h1>{{title | uppercase}}</h1>
+        <p>Home  |  Hospital Management Login Page</p>
+    </div>
+    <div class="login-box">
+        <form class="login-form" (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title class="card-title">Login</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="form-content">
+                    <mat-form-field>
+                        <mat-label>Username</mat-label>
+                        <input matInput type="text" ngModel 
+                                name="username"
+                                required pattern="[a-zA-Z0-9]+"
+                                #username="ngModel">
+                        <mat-error *ngIf="username.errors?.required">username is required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]=" hide ? 'password' : 'text' "
+                                ngModel name="password"
+                                required
+                                #password="ngModel">
+                        <button type="button" mat-icon-button matSuffix (click)="hide = !hide" >
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="password.errors?.required">password is required</mat-error>
+                    </mat-form-field>
+                </mat-card-content>
+                <mat-card-actions class="form-content form-actions"> 
+                    <mat-checkbox>Remember me</mat-checkbox>
+                    <button mat-stroked-button type="submit">Login</button>
+                    <a href="#">forgot your Password ?</a>
+                </mat-card-actions>
+            </mat-card>
+        </form>       
+    </div>
+</div>

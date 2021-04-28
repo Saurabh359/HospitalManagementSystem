@@ -1,0 +1,30 @@
+
+.outer-input-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: sp;
+    margin: 5px 0;
+    flex-wrap: wrap;
+}
+.input-section{
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px 0;
+    flex-wrap: wrap;
+}
+.input-section > *{
+    flex-grow: 1;
+    margin: 0 20px;
+}
+.title{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight:500;
+}
+.radio-group > :not(:last-child) {
+    margin-right: 5px;
+    margin-bottom: 10px;
+}

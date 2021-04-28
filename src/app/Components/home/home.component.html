@@ -1,0 +1,30 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav>
+        <mat-nav-list>
+            <a mat-list-item (click)="addPatient()">
+                <mat-icon>add</mat-icon>
+                <span>Add Patient</span>
+            </a>
+            <a mat-list-item routerLink="">
+                <mat-icon>logout</mat-icon>
+                <span>Logout</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-toolbar color="primary" class="nav-toolbar">
+        <mat-nav-list class="nav-options">
+            <a mat-list-item (click)="addPatient()">
+                <mat-icon>add</mat-icon>
+                <span>Add Patient</span>
+            </a>
+            <a mat-list-item routerLink="">
+                <mat-icon>logout</mat-icon>
+                <span>Logout</span>
+            </a>
+        </mat-nav-list>
+        <button mat-mini-fab color="warn" (click)="sidenav.open()" class="nav-button">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </mat-toolbar>
+    <app-patient></app-patient>
+</mat-sidenav-container>

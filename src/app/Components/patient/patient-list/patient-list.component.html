@@ -1,0 +1,31 @@
+<div class="body">
+    <mat-table class="patient-table mat-elevation-z8" [dataSource]="dataSource">
+        <ng-container matColumnDef="patientId">
+            <mat-header-cell *matHeaderCellDef >PatientId</mat-header-cell>
+            <mat-cell *matCellDef="let patient">{{patient.patientId}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-cell *matCellDef="let patient">{{patient.name}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="contact">
+            <mat-header-cell *matHeaderCellDef>Contact</mat-header-cell>
+            <mat-cell *matCellDef="let patient">{{patient.contact}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+            <mat-cell  *matCellDef="let patient">
+                <button mat-button class="mat-raised-button mat-warn table-btn" (click)="editPatient(patient.patientId)">Edit</button>
+                <button mat-button class="mat-raised-button mat-warn table-btn" >Detail</button>
+            </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+</div>
+
+<mat-paginator  class="page"
+                [length]="total"
+                [pageSize]="5"
+                [pageSizeOptions]="[5, 10, 15, 20]" >
+</mat-paginator>

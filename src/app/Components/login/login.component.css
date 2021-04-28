@@ -1,0 +1,35 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 40vh;
+    background-color: seagreen;
+    word-spacing: 1px;
+}
+.login-box{
+    margin: 20px 20px;
+    padding: 10px  20px;
+}
+.login-form{
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;   
+}
+.form-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.card-title{
+    text-align: center;
+}
+.form-actions *{
+    margin: 10px 10px;
+}
+.form-actions button{
+    width: fit-content;
+}
+.form-actions a{
+    text-decoration: none;
+}

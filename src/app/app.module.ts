@@ -69,7 +69,7 @@ import { AgePipePipe } from './Pipes/age-pipe.pipe';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule
-  ],
+  ],//
   providers: [UserLoginService, AuthGuardService, CookieService],
   bootstrap: [AppComponent]
 })

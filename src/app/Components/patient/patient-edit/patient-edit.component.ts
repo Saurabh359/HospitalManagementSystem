@@ -15,8 +15,8 @@ export class PatientEditComponent{
   edit: boolean=false;
   patientDetails: PatientDetail;
   patientForm: FormGroup;
-  tempAge: any=null;
-  tempDate: any=null;
+  tempAge: number | null=null;
+  tempDate: string | null=null;
 
   constructor(private fb: FormBuilder, private fv: ValidatorsService,
               private dialogRef: MatDialogRef<PatientEditComponent>,              
@@ -88,13 +88,41 @@ export class PatientEditComponent{
   // form submit function
   onSubmit(){
     if(!this.patientForm.invalid){
-      this.patientForm.enable();
-      this.dialogRef.close(this.patientForm.value);
+    
+    let choice=true;
+    if(this.patientForm.dirty) choice=confirm("Submitting Patinent Form");
+    
+    if(choice)
+      { 
+        this.patientForm.enable();
+        let result: PatientDetail= this.ResultRefactoring();
+        this.dialogRef.close(result);
+      }
     }
   }
 
   close(){
-      this.dialogRef.close();
+    let choice=true;
+    if(this.patientForm.dirty) choice= confirm("Closing Without Saving changes");
+    if(choice) this.dialogRef.close();
+  }
+
+  ResultRefactoring() : PatientDetail{
+
+    let tempPatient: PatientDetail={ 
+      patientId: this.b['patientId'].value,
+      firstName: this.c['firstName'].value, lastName: this.c['lastName'].value,
+      gender: this.d['gender'].value, age: this.d['age'].value,
+      maritalStatus: this.e['maritalStatus'].value, dob: this.d['dob'].value,
+      religion: this.e['religion'].value, phone: this.f['phone'].value, email: this.f['email'].value,
+      nationality: this.g['nationality'].value, state: this.g['state'].value, occupation: this.g['occupation'].value, 
+      address: this.g['address'].value, relativeName: this.kin['relativename'].value,
+      relativeRelation: this.kin['relation'].value, relativePhone: this.kin['relativephone'].value, 
+      relativeEmail: this.kin['relativeemail'].value, relativeOccupation: this.kin['relativeoccupation'].value, 
+      relativeAddress: this.kin['relativeaddress'].value
+    };
+
+    return tempPatient;
   }
 
 }

@@ -7,6 +7,14 @@
     padding: 0 30px;
     min-width: 550px;
 }
+.patient-table mat-row > mat-cell{
+    margin-left: 6vw;
+}
+
+.patient-table mat-header-row > mat-header-cell{
+    margin-left: 6vw;
+}
+
 .page{
     margin: 10px auto;
     display: flex;
@@ -22,4 +30,15 @@
 .table-btn{
     font-size: 15px;
     margin-right: 5px;
+}
+
+@media screen and (max-width : 840px){
+    
+    .patient-table mat-row > mat-cell{
+        margin-left: 0;
+    }
+    
+    .patient-table mat-header-row > mat-header-cell{
+        margin-left: 0;
+    }       
 }

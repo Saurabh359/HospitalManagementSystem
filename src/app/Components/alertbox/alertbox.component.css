@@ -8,11 +8,13 @@
     z-index: 100;
     padding: 20px 40px;
     font-size: 17px;
-    box-shadow: 0 0 2px 1px #ffffff;
-    color: white;
+    box-shadow: 0 0 3px 2px #444343;
+    color: black;
+    border-radius: 5px;
+    border-color: transparent;
 }
 .error{
-    background-color: #fc0000;
+    background-color: #f72c2c;
 }
 .success{
     background-color: rgb(170, 255, 0);

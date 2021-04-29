@@ -1,3 +1,4 @@
+<ng-template #placeholder></ng-template>
 <mat-sidenav-container fullscreen>
     <mat-sidenav #sidenav>
         <mat-nav-list>
@@ -12,6 +13,7 @@
         </mat-nav-list>
     </mat-sidenav>
     <mat-toolbar color="primary" class="nav-toolbar">
+        <div class="title"> Hospital Management </div>
         <mat-nav-list class="nav-options">
             <a mat-list-item (click)="addPatient()">
                 <mat-icon>add</mat-icon>

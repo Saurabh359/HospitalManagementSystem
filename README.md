@@ -10,6 +10,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 <img src="src\assets\Frontend-Screenshots\4.PNG">
 <img src="src\assets\Frontend-Screenshots\5.PNG">
 <img src="src\assets\Frontend-Screenshots\6.PNG">
+<img src="src\assets\Frontend-Screenshots\7.PNG">
 
 ## Development server
 

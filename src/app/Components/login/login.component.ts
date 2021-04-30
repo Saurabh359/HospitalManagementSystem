@@ -13,22 +13,25 @@ export class LoginComponent implements OnInit {
 
   title: string="Hospital Management Login Page";
   hide: boolean = true;
+
   @ViewChild("placeholder",{read: ViewContainerRef}) alertContainer!: ViewContainerRef;
+  @ViewChild('f')form!: NgForm;
 
   constructor(private route: Router,
               private logIn: UserLoginService,
-              private showAlert: ShowalertService){}
+              private showAlert: ShowalertService){
+    }
   
   ngOnInit() {
     this.logIn.SignOut();
   }
 
-  onSubmit(form: NgForm){
+  onSubmit(){
     
-    if(form.valid){
+    if(this.form.valid){
       
-      let user=form.controls['username'].value;
-      let pass=form.controls['password'].value;
+      let user=this.form.controls['username'].value;
+      let pass=this.form.controls['password'].value;
       let res: boolean= this.logIn.SignIn(user, pass);
 
       if(res) this.route.navigate(['home']); 

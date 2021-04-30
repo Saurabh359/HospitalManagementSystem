@@ -1,4 +1,10 @@
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PatientListComponent } from './patient-list/patient-list.component';
 
 import { PatientComponent } from './patient.component';
 
@@ -8,7 +14,9 @@ describe('PatientComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PatientComponent ]
+      imports:[MatDialogModule, MatPaginatorModule, BrowserAnimationsModule, MatTableModule, BrowserAnimationsModule],
+      declarations: [ PatientComponent, PatientListComponent],
+      schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   });
@@ -21,5 +29,13 @@ describe('PatientComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render patient-list component',()=>{
+    fixture.detectChanges();
+
+    let childComponent= fixture.debugElement.nativeElement.querySelector('app-patient-list');
+    
+    expect(childComponent).toBeTruthy();
   });
 });

@@ -11,7 +11,7 @@ import { PatientDetail } from '../Models/patientDetail.model';
 export class PatientService {
   total: number=0;
 
-  constructor(private http: HttpClient) { 
+  constructor() { 
   }
 
   getAllPatient(): Observable<Patient[]>{
@@ -69,8 +69,6 @@ export class PatientService {
      
     try{
 
-      console.log(data);
-      
       let id: number= this.patientDetail[this.patientDetail.length-1].patientId + 1;
       data.patientId= id;
 

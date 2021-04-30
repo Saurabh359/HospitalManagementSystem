@@ -45,7 +45,6 @@ export class HomeComponent implements OnInit {
     
     dialogRef.afterClosed().subscribe((data: PatientDetail )=>{
       if(data){
-        console.log(data);
         let res= this.patientService.addNewPatient(data);
         let msg=" Something went wrong";
         let type= "error";

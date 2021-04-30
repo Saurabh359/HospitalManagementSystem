@@ -39,7 +39,6 @@ export class PatientListComponent implements OnInit , AfterViewInit{
     this.paginator=new MatPaginator(this.intl, this.changeDetectorRef);
 
     this.notifyUpdate.notify.subscribe(()=>{
-      console.log("called");
         this.dataActions('','asc',0,5);
     });
    }

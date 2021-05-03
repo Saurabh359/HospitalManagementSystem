@@ -1,4 +1,4 @@
-# HospitalManagementSystem
+# Hospital Management System
 
 Hospital Management Application  for  hospital staff use as for managing Patient Data. This app provides  features like add new patient, update patient data, display a list of patients.  
 

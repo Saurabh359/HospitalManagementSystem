@@ -6,10 +6,10 @@ import { AlertboxComponent } from '../Components/alertbox/alertbox.component';
 })
 export class ShowalertService {
 
-  constructor(private factoryResoler: ComponentFactoryResolver) { }
+  constructor(private factoryResolver: ComponentFactoryResolver) { }
 
   showAlert(message: string, type: string, dir: ViewContainerRef){
-    let alertFactory= this.factoryResoler.resolveComponentFactory(AlertboxComponent); 
+    let alertFactory= this.factoryResolver.resolveComponentFactory(AlertboxComponent); 
     dir.clear();
 
     let compRef= dir.createComponent(alertFactory);

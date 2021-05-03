@@ -28,7 +28,7 @@ describe('PatientListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the table with data ', () => {
+  it('should render the table with data ', async() => {
   
     fixture.detectChanges();
     fixture.whenStable().then(() => {
@@ -50,7 +50,7 @@ describe('PatientListComponent', () => {
       expect(row1.cells[0].innerHTML).toBe('8923');
       expect(row1.cells[1].innerHTML).toBe('Saurabh Mehra');
       expect(row1.cells[2].innerHTML).toBe('7412067123');
-  
+      
     });
   });
 });

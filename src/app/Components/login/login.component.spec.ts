@@ -35,14 +35,23 @@ describe('LoginComponent', () => {
   
   it('should render title',()=>{
     fixture.detectChanges();
-    let template= fixture.debugElement.nativeElement;
+    let template= fixture.nativeElement;
     let ele= template.querySelector('h1');
 
     expect(ele.textContent).toEqual('HOSPITAL MANAGEMENT LOGIN PAGE');
   });
 
+  
+  it('should display a small section after title',()=>{
+
+    let ele= fixture.nativeElement.querySelector('p');
+
+    expect(ele.textContent).toBe('Home | Hospital Management Login Page');
+  });
+
+
   it('should render form with Username and Password and other inputs ', () => {
-    const element = fixture.nativeElement;
+    let element = fixture.nativeElement;
 
     expect(element.querySelector('form')).toBeTruthy();
     expect(element.querySelector('input[name="username"]')).toBeTruthy();

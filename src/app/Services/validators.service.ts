@@ -19,15 +19,4 @@ export class ValidatorsService {
 
     return null;
  }
-
-// this.invalidemail.bind(this)
-
-
- //   invalidemail(control: FormControl): {[s: string]: boolean }{ 
-//     let regex: RegExp= /[a-zA-Z0-9]+@[a-zA-Z]+.[a-zA-Z]/;
-//     if(!regex.test(control.value)){
-//       return {'invalidEmail': true}  
-//     }
-//     return null;
-//  }
 }

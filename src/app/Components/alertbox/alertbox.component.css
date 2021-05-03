@@ -14,8 +14,8 @@
     border-color: transparent;
 }
 .error{
-    background-color: #f72c2c;
+    background-color: red;
 }
 .success{
-    background-color: rgb(170, 255, 0);
+    background-color: yellowgreen
 }

@@ -143,4 +143,22 @@ describe('PatientEditComponent', () => {
 
   });
 
+  it('should calculate age from date of birth ', () => {
+    
+    let hostElement = fixture.nativeElement;
+    let dateInput: HTMLInputElement = hostElement.querySelector('input[formControlName="dob"]');
+    let ageDisplay: HTMLInputElement = hostElement.querySelector('input[formControlName="age"]');
+  
+    dateInput.value = '3/15/2000';
+    
+    fixture.detectChanges();
+    
+    dateInput.dispatchEvent(new Event('input'));
+    ageDisplay.dispatchEvent(new Event('input'));
+  
+    fixture.detectChanges();
+  
+    expect(ageDisplay.value).toEqual('21');
+  });
+
 });
